@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>患时记（CareTrail）隐私协议</title>
+  <meta name="description" content="患时记（CareTrail）隐私协议静态页面">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f7fb;
+      --panel: rgba(255, 255, 255, 0.9);
+      --panel-solid: #ffffff;
+      --text: #172033;
+      --muted: #5f6b83;
+      --border: #dbe3ef;
+      --accent: #2458f5;
+      --accent-soft: rgba(36, 88, 245, 0.1);
+      --shadow: 0 18px 50px rgba(20, 34, 66, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(36, 88, 245, 0.09), transparent 28%),
+        radial-gradient(circle at top right, rgba(70, 179, 255, 0.08), transparent 24%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 40px 20px 72px;
+    }
+
+    .hero {
+      display: grid;
+      gap: 18px;
+      margin-bottom: 28px;
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: linear-gradient(180deg, var(--panel), rgba(255, 255, 255, 0.78));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 68ch;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .meta span {
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .toc,
+    .content {
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: var(--panel-solid);
+      box-shadow: var(--shadow);
+    }
+
+    .toc {
+      position: sticky;
+      top: 20px;
+      padding: 20px;
+    }
+
+    .toc h2 {
+      margin: 0 0 12px;
+      font-size: 1rem;
+    }
+
+    .toc ol {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .toc li + li {
+      margin-top: 8px;
+    }
+
+    .toc a {
+      color: inherit;
+    }
+
+    .content {
+      padding: 8px 0;
+      overflow: hidden;
+    }
+
+    section {
+      padding: 24px 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    section:first-child {
+      border-top: 0;
+    }
+
+    section h2 {
+      margin: 0 0 12px;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+    }
+
+    section p,
+    section li {
+      color: var(--text);
+    }
+
+    section ul {
+      margin: 12px 0 0;
+      padding-left: 20px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 14px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 640px;
+      background: white;
+    }
+
+    th,
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f7faff;
+      font-weight: 700;
+    }
+
+    code {
+      padding: 0.15em 0.42em;
+      border-radius: 6px;
+      background: #eef3ff;
+      color: #18348f;
+      font-size: 0.95em;
+    }
+
+    .contact-box {
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: #f7faff;
+      border: 1px solid var(--border);
+    }
+
+    .contact-box p {
+      margin: 0;
+    }
+
+    .contact-box ul {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 960px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .toc {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 18px 14px 56px;
+      }
+
+      .hero,
+      section,
+      .toc {
+        border-radius: 18px;
+      }
+
+      .hero {
+        padding: 22px 18px;
+      }
+
+      section {
+        padding: 20px 18px;
+      }
+
+      .toc {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">CareTrail · 隐私协议</div>
+      <h1>患时记（CareTrail）隐私协议</h1>
+      <p>本页面将隐私协议整理为可直接访问的静态网页，保留原有条款结构，同时提供更清晰的阅读和锚点导航体验。</p>
+      <div class="meta">
+        <span>最后更新日期：2026 年 6 月 12 日</span>
+        <span>版本：公开展示页</span>
+        <span>本地优先 · 隐私优先</span>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="toc" aria-label="目录">
+        <h2>目录</h2>
+        <ol>
+          <li><a href="#section-1">总则</a></li>
+          <li><a href="#section-2">数据收集声明</a></li>
+          <li><a href="#section-3">本地存储的数据</a></li>
+          <li><a href="#section-4">iCloud 同步</a></li>
+          <li><a href="#section-5">图片与 OCR 识别</a></li>
+          <li><a href="#section-6">数据导出与备份</a></li>
+          <li><a href="#section-7">数据删除</a></li>
+          <li><a href="#section-8">第三方服务</a></li>
+          <li><a href="#section-9">儿童隐私</a></li>
+          <li><a href="#section-10">隐私政策的更新</a></li>
+          <li><a href="#section-11">联系我们</a></li>
+        </ol>
+      </aside>
+
+      <article class="content">
+        <section id="section-1">
+          <h2>1. 总则</h2>
+          <p>患时记（CareTrail，以下简称“本应用”）采用<strong>本地优先（Local-First）、隐私优先（Privacy-by-Design）</strong> 的设计理念。本隐私协议说明本应用如何收集、使用、存储和删除您的数据。</p>
+        </section>
+
+        <section id="section-2">
+          <h2>2. 数据收集声明</h2>
+          <p><strong>本应用不会向开发者服务器收集或上传您的个人数据。</strong> 本应用：</p>
+          <ul>
+            <li>无用户注册/登录系统</li>
+            <li>无第三方分析 SDK（如 Google Analytics、Firebase 等）</li>
+            <li>无广告追踪</li>
+            <li>无崩溃报告 SDK</li>
+            <li>不向第三方广告、分析或崩溃上报平台发送用户数据</li>
+            <li>Apple 隐私清单（<code>PrivacyInfo.xcprivacy</code>）声明数据收集为空，追踪标识为关闭</li>
+          </ul>
+        </section>
+
+        <section id="section-3">
+          <h2>3. 本地存储的数据</h2>
+          <p>所有数据默认仅保存在您的设备本地，采用 Apple SwiftData 框架存储于 SQLite 数据库中，具体包括：</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>数据类型</th>
+                  <th>内容说明</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>成员信息</td>
+                  <td>姓名、出生日期、性别、体重、备注</td>
+                </tr>
+                <tr>
+                  <td>病程记录</td>
+                  <td>疾病名称、起止时间、备注、状态（进行中/已康复）</td>
+                </tr>
+                <tr>
+                  <td>时间线记录</td>
+                  <td>症状描述、就诊信息、用药记录、医院/科室/医生名称、费用金额</td>
+                </tr>
+                <tr>
+                  <td>图片附件</td>
+                  <td>症状照片、病历、处方、检查单等图片及 OCR 识别文字</td>
+                </tr>
+                <tr>
+                  <td>偏好设置</td>
+                  <td>语言选择、订阅状态、提示状态等</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top: 14px;">存储位置：<code>Application Support/CareTrail/CareTrail.sqlite</code></p>
+        </section>
+
+        <section id="section-4">
+          <h2>4. iCloud 同步</h2>
+          <ul>
+            <li>iCloud 同步为<strong>可选功能</strong>，需用户手动开启（Pro 订阅）</li>
+            <li>开启后，数据通过 Apple CloudKit 同步至您个人的 iCloud 私有容器</li>
+            <li>此过程由 Apple 系统框架管理，开发者无法访问您的 iCloud 数据</li>
+            <li>关闭同步或退出 iCloud 后，云端数据保留在您的 iCloud 中，由您自行管理</li>
+            <li>仅在用户开启同步后，应用才会与 Apple 的云端服务建立数据同步连接</li>
+          </ul>
+        </section>
+
+        <section id="section-5">
+          <h2>5. 图片与 OCR 识别</h2>
+          <ul>
+            <li>图片附件存储在设备本地数据库的外部存储文件中</li>
+            <li>OCR（光学字符识别）使用 Apple Vision 框架，<strong>完全在设备端执行</strong>，无需联网</li>
+            <li>识别结果仅保存在本地数据库中</li>
+          </ul>
+        </section>
+
+        <section id="section-6">
+          <h2>6. 数据导出与备份</h2>
+          <ul>
+            <li>您可随时通过应用内功能导出 JSON 格式的完整备份（含 SHA-256 校验）</li>
+            <li>备份文件包含所有数据（图片以 Base64 编码），由您自行保管</li>
+            <li>您也可导入备份恢复全部数据</li>
+            <li>导出的备份文件包含完整健康记录，请妥善保管</li>
+          </ul>
+        </section>
+
+        <section id="section-7">
+          <h2>7. 数据删除</h2>
+          <p>您可通过以下方式删除数据：</p>
+          <ul>
+            <li>在应用内逐条删除成员、病程、记录或附件</li>
+            <li>卸载本应用将清除所有本地存储的数据</li>
+            <li>iCloud 同步数据需在 Apple ID 设置中管理</li>
+          </ul>
+        </section>
+
+        <section id="section-8">
+          <h2>8. 第三方服务</h2>
+          <p>本应用<strong>不集成</strong>任何第三方广告、分析、崩溃上报或追踪服务。使用的 Apple 系统框架包括：</p>
+          <ul>
+            <li><strong>SwiftData</strong> — 本地数据库存储</li>
+            <li><strong>Vision</strong> — 设备端 OCR 识别</li>
+            <li><strong>CloudKit</strong> — 可选 iCloud 同步</li>
+            <li><strong>CryptoKit</strong> — 备份校验</li>
+          </ul>
+          <p>以上框架均由 Apple 提供，相关数据处理遵循 <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple 隐私政策</a>。</p>
+        </section>
+
+        <section id="section-9">
+          <h2>9. 儿童隐私</h2>
+          <p>本应用可记录家庭成员（包括未成年人）的健康信息，但：</p>
+          <ul>
+            <li>所有数据仅存储在家长/监护人的设备本地</li>
+            <li>开发者无法访问任何儿童数据</li>
+            <li>建议家长/监护人对儿童的隐私设置进行管理</li>
+          </ul>
+        </section>
+
+        <section id="section-10">
+          <h2>10. 隐私政策的更新</h2>
+          <p>如本隐私政策发生变更，将在应用内、飞书公开链接或其他官方渠道公布更新版本。继续使用本应用即表示您同意更新后的政策。</p>
+        </section>
+
+        <section id="section-11">
+          <h2>11. 联系我们</h2>
+          <div class="contact-box">
+            <p>如对本隐私政策有任何疑问，请联系：</p>
+            <ul>
+              <li>邮箱：<span style="font-weight: 700;">[请填写用于隐私事务联系的邮箱]</span></li>
+            </ul>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+</body>
+</html>
