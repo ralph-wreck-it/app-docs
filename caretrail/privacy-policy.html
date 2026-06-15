@@ -1,22 +1,29 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+<!doctype html>
+<html lang="zh-Hans">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>患时记（CareTrail）隐私协议</title>
-  <meta name="description" content="患时记（CareTrail）隐私协议静态页面">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="CareTrail / 患时记隐私政策">
+  <title>患时记 隐私政策</title>
   <style>
     :root {
-      color-scheme: light;
-      --bg: #f4f7fb;
-      --panel: rgba(255, 255, 255, 0.9);
-      --panel-solid: #ffffff;
-      --text: #172033;
-      --muted: #5f6b83;
-      --border: #dbe3ef;
-      --accent: #2458f5;
-      --accent-soft: rgba(36, 88, 245, 0.1);
-      --shadow: 0 18px 50px rgba(20, 34, 66, 0.08);
+      --bg: #f3efe7;
+      --bg-deep: #e8dfd1;
+      --surface: rgba(255, 252, 247, 0.88);
+      --surface-solid: #fffdf8;
+      --text: #1f2933;
+      --muted: #56616b;
+      --line: rgba(58, 73, 82, 0.14);
+      --shadow: 0 28px 80px rgba(39, 46, 53, 0.12);
+      --accent: #0f766e;
+      --accent-strong: #134e4a;
+      --accent-soft: rgba(15, 118, 110, 0.12);
+      --warning: #8a5a00;
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
     }
 
     * {
@@ -29,235 +36,265 @@
 
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(36, 88, 245, 0.09), transparent 28%),
-        radial-gradient(circle at top right, rgba(70, 179, 255, 0.08), transparent 24%),
-        var(--bg);
+      min-height: 100vh;
       color: var(--text);
-      line-height: 1.75;
+      background:
+        radial-gradient(circle at top left, rgba(15, 118, 110, 0.14), transparent 34%),
+        radial-gradient(circle at top right, rgba(180, 83, 9, 0.12), transparent 28%),
+        linear-gradient(180deg, #f6f1e8 0%, var(--bg) 38%, #f8f5ef 100%);
+      font-family:
+        "Iowan Old Style",
+        "Palatino Linotype",
+        "Book Antiqua",
+        Georgia,
+        serif;
+      line-height: 1.65;
+      letter-spacing: 0.01em;
     }
 
     a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
+      color: inherit;
     }
 
     .page {
-      max-width: 1120px;
+      width: min(1040px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 40px 20px 72px;
+      padding: 28px 0 56px;
     }
 
     .hero {
-      display: grid;
-      gap: 18px;
-      margin-bottom: 28px;
+      position: relative;
+      overflow: hidden;
       padding: 28px;
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      background: linear-gradient(180deg, var(--panel), rgba(255, 255, 255, 0.78));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.72)),
+        linear-gradient(135deg, rgba(15, 118, 110, 0.08), rgba(180, 83, 9, 0.05));
+      backdrop-filter: blur(18px);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(12px);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -8% -48% auto;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(15, 118, 110, 0.16) 0%, rgba(15, 118, 110, 0) 70%);
+      pointer-events: none;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      width: fit-content;
-      padding: 6px 12px;
+      gap: 8px;
+      margin: 0 0 14px;
+      padding: 8px 14px;
       border-radius: 999px;
       background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
+      color: var(--accent-strong);
+      font: 700 0.84rem/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.15;
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      line-height: 1.06;
       letter-spacing: -0.03em;
     }
 
-    .hero p {
-      margin: 0;
+    .subtitle {
       max-width: 68ch;
+      margin: 16px 0 0;
       color: var(--muted);
-      font-size: 1.03rem;
+      font: 400 1.06rem/1.75 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 14px;
-      font-size: 0.95rem;
+    .hero-meta {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      margin-top: 20px;
+      font: 600 0.96rem/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--muted);
     }
 
-    .meta span {
-      padding: 6px 10px;
-      border: 1px solid var(--border);
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 14px;
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.76);
+      border: 1px solid var(--line);
     }
 
-    .layout {
-      display: grid;
-      grid-template-columns: 280px minmax(0, 1fr);
-      gap: 24px;
-      align-items: start;
-    }
-
-    .toc,
-    .content {
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      background: var(--panel-solid);
-      box-shadow: var(--shadow);
-    }
-
-    .toc {
-      position: sticky;
-      top: 20px;
-      padding: 20px;
-    }
-
-    .toc h2 {
-      margin: 0 0 12px;
-      font-size: 1rem;
-    }
-
-    .toc ol {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .toc li + li {
-      margin-top: 8px;
-    }
-
-    .toc a {
-      color: inherit;
-    }
-
-    .content {
-      padding: 8px 0;
-      overflow: hidden;
-    }
-
-    section {
-      padding: 24px 28px;
-      border-top: 1px solid var(--border);
-    }
-
-    section:first-child {
-      border-top: 0;
-    }
-
-    section h2 {
-      margin: 0 0 12px;
-      font-size: 1.35rem;
-      letter-spacing: -0.02em;
-    }
-
-    section p,
-    section li {
+    .meta-chip strong {
       color: var(--text);
     }
 
-    section ul {
-      margin: 12px 0 0;
-      padding-left: 20px;
+    .lang-switcher {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
     }
 
-    .table-wrap {
-      overflow-x: auto;
-      margin-top: 14px;
-      border: 1px solid var(--border);
-      border-radius: 16px;
+    .lang-button {
+      appearance: none;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 11px 16px;
+      background: rgba(255, 255, 255, 0.76);
+      color: var(--muted);
+      font: 700 0.94rem/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      cursor: pointer;
+      transition: transform 150ms ease, background 150ms ease, border-color 150ms ease, color 150ms ease;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 640px;
-      background: white;
+    .lang-button:hover {
+      transform: translateY(-1px);
+      color: var(--text);
+      border-color: rgba(15, 118, 110, 0.24);
     }
 
-    th,
-    td {
-      padding: 14px 16px;
-      border-bottom: 1px solid var(--border);
-      text-align: left;
-      vertical-align: top;
+    .lang-button[aria-pressed="true"] {
+      background: var(--accent-strong);
+      color: #fff;
+      border-color: var(--accent-strong);
+      box-shadow: 0 10px 24px rgba(19, 78, 74, 0.22);
     }
 
-    th {
-      background: #f7faff;
-      font-weight: 700;
+    .policy {
+      display: grid;
+      gap: 18px;
+      margin-top: 20px;
     }
 
-    code {
-      padding: 0.15em 0.42em;
-      border-radius: 6px;
-      background: #eef3ff;
-      color: #18348f;
-      font-size: 0.95em;
+    .card {
+      padding: 24px 24px 22px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: var(--surface);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 14px 40px rgba(44, 53, 61, 0.07);
+    }
+
+    .card h2 {
+      margin: 0 0 12px;
+      color: var(--accent-strong);
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      margin: 0 0 12px;
+      color: var(--text);
+      font: 400 1rem/1.75 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .card ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: var(--text);
+      font: 400 1rem/1.72 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .card li + li {
+      margin-top: 10px;
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-top: 6px;
     }
 
     .contact-box {
       padding: 16px 18px;
-      border-radius: 16px;
-      background: #f7faff;
-      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: rgba(15, 118, 110, 0.06);
+      border: 1px solid rgba(15, 118, 110, 0.14);
     }
 
-    .contact-box p {
-      margin: 0;
+    .contact-label {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--muted);
+      font: 700 0.82rem/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
     }
 
-    .contact-box ul {
-      margin-bottom: 0;
+    .contact-value {
+      color: var(--text);
+      font: 600 1rem/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      word-break: break-word;
     }
 
-    @media (max-width: 960px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
-
-      .toc {
-        position: static;
-      }
+    .note {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: var(--radius-md);
+      background: rgba(138, 90, 0, 0.08);
+      border: 1px solid rgba(138, 90, 0, 0.14);
+      color: #6a4600;
+      font: 600 0.95rem/1.6 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    @media (max-width: 640px) {
+    .footer {
+      margin: 20px 0 0;
+      color: var(--muted);
+      font: 500 0.92rem/1.6 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
       .page {
-        padding: 18px 14px 56px;
+        width: min(100% - 20px, 1040px);
+        padding-top: 14px;
       }
 
       .hero,
-      section,
-      .toc {
-        border-radius: 18px;
+      .card {
+        padding-left: 18px;
+        padding-right: 18px;
       }
 
-      .hero {
-        padding: 22px 18px;
+      h1 {
+        font-size: clamp(2rem, 10vw, 3rem);
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
       }
 
-      section {
-        padding: 20px 18px;
+      .page {
+        width: 100%;
+        padding: 0;
       }
 
-      .toc {
-        padding: 18px;
+      .hero,
+      .card {
+        box-shadow: none;
+        background: #fff;
+      }
+
+      .lang-switcher,
+      .note {
+        display: none;
       }
     }
   </style>
@@ -265,169 +302,403 @@
 <body>
   <main class="page">
     <header class="hero">
-      <div class="eyebrow">CareTrail · 隐私协议</div>
-      <h1>患时记（CareTrail）隐私协议</h1>
-      <p>本页面将隐私协议整理为可直接访问的静态网页，保留原有条款结构，同时提供更清晰的阅读和锚点导航体验。</p>
-      <div class="meta">
-        <span>最后更新日期：2026 年 6 月 12 日</span>
-        <span>版本：公开展示页</span>
-        <span>本地优先 · 隐私优先</span>
+      <div class="eyebrow">CareTrail / 患时记</div>
+      <h1 id="policyTitle">患时记 隐私政策</h1>
+      <p class="subtitle" id="policySubtitle">
+        本页面说明本应用会处理哪些数据、如何使用、资料存放在哪里，以及您如何删除或导出这些资料。
+      </p>
+      <div class="hero-meta">
+        <div class="meta-chip">
+          <strong id="updatedLabel">最后更新日期</strong>
+          <span id="policyUpdated">2026 年 6 月 15 日</span>
+        </div>
+        <div class="meta-chip">
+          <strong id="contactLabel">联系邮箱</strong>
+          <a id="policyEmail" href="mailto:teng7922@126.com">teng7922@126.com</a>
+        </div>
       </div>
+      <div class="lang-switcher" id="langSwitcher" role="tablist" aria-label="Language selector"></div>
     </header>
 
-    <div class="layout">
-      <aside class="toc" aria-label="目录">
-        <h2>目录</h2>
-        <ol>
-          <li><a href="#section-1">总则</a></li>
-          <li><a href="#section-2">数据收集声明</a></li>
-          <li><a href="#section-3">本地存储的数据</a></li>
-          <li><a href="#section-4">iCloud 同步</a></li>
-          <li><a href="#section-5">图片与 OCR 识别</a></li>
-          <li><a href="#section-6">数据导出与备份</a></li>
-          <li><a href="#section-7">数据删除</a></li>
-          <li><a href="#section-8">第三方服务</a></li>
-          <li><a href="#section-9">儿童隐私</a></li>
-          <li><a href="#section-10">隐私政策的更新</a></li>
-          <li><a href="#section-11">联系我们</a></li>
-        </ol>
-      </aside>
+    <article class="policy" id="policyContent" aria-live="polite"></article>
 
-      <article class="content">
-        <section id="section-1">
-          <h2>1. 总则</h2>
-          <p>患时记（CareTrail，以下简称“本应用”）采用<strong>本地优先（Local-First）、隐私优先（Privacy-by-Design）</strong> 的设计理念。本隐私协议说明本应用如何收集、使用、存储和删除您的数据。</p>
-        </section>
-
-        <section id="section-2">
-          <h2>2. 数据收集声明</h2>
-          <p><strong>本应用不会向开发者服务器收集或上传您的个人数据。</strong> 本应用：</p>
-          <ul>
-            <li>无用户注册/登录系统</li>
-            <li>无第三方分析 SDK（如 Google Analytics、Firebase 等）</li>
-            <li>无广告追踪</li>
-            <li>无崩溃报告 SDK</li>
-            <li>不向第三方广告、分析或崩溃上报平台发送用户数据</li>
-            <li>Apple 隐私清单（<code>PrivacyInfo.xcprivacy</code>）声明数据收集为空，追踪标识为关闭</li>
-          </ul>
-        </section>
-
-        <section id="section-3">
-          <h2>3. 本地存储的数据</h2>
-          <p>所有数据默认仅保存在您的设备本地，采用 Apple SwiftData 框架存储于 SQLite 数据库中，具体包括：</p>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>数据类型</th>
-                  <th>内容说明</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>成员信息</td>
-                  <td>姓名、出生日期、性别、体重、备注</td>
-                </tr>
-                <tr>
-                  <td>病程记录</td>
-                  <td>疾病名称、起止时间、备注、状态（进行中/已康复）</td>
-                </tr>
-                <tr>
-                  <td>时间线记录</td>
-                  <td>症状描述、就诊信息、用药记录、医院/科室/医生名称、费用金额</td>
-                </tr>
-                <tr>
-                  <td>图片附件</td>
-                  <td>症状照片、病历、处方、检查单等图片及 OCR 识别文字</td>
-                </tr>
-                <tr>
-                  <td>偏好设置</td>
-                  <td>语言选择、订阅状态、提示状态等</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p style="margin-top: 14px;">存储位置：<code>Application Support/CareTrail/CareTrail.sqlite</code></p>
-        </section>
-
-        <section id="section-4">
-          <h2>4. iCloud 同步</h2>
-          <ul>
-            <li>iCloud 同步为<strong>可选功能</strong>，需用户手动开启（Pro 订阅）</li>
-            <li>开启后，数据通过 Apple CloudKit 同步至您个人的 iCloud 私有容器</li>
-            <li>此过程由 Apple 系统框架管理，开发者无法访问您的 iCloud 数据</li>
-            <li>关闭同步或退出 iCloud 后，云端数据保留在您的 iCloud 中，由您自行管理</li>
-            <li>仅在用户开启同步后，应用才会与 Apple 的云端服务建立数据同步连接</li>
-          </ul>
-        </section>
-
-        <section id="section-5">
-          <h2>5. 图片与 OCR 识别</h2>
-          <ul>
-            <li>图片附件存储在设备本地数据库的外部存储文件中</li>
-            <li>OCR（光学字符识别）使用 Apple Vision 框架，<strong>完全在设备端执行</strong>，无需联网</li>
-            <li>识别结果仅保存在本地数据库中</li>
-          </ul>
-        </section>
-
-        <section id="section-6">
-          <h2>6. 数据导出与备份</h2>
-          <ul>
-            <li>您可随时通过应用内功能导出 JSON 格式的完整备份（含 SHA-256 校验）</li>
-            <li>备份文件包含所有数据（图片以 Base64 编码），由您自行保管</li>
-            <li>您也可导入备份恢复全部数据</li>
-            <li>导出的备份文件包含完整健康记录，请妥善保管</li>
-          </ul>
-        </section>
-
-        <section id="section-7">
-          <h2>7. 数据删除</h2>
-          <p>您可通过以下方式删除数据：</p>
-          <ul>
-            <li>在应用内逐条删除成员、病程、记录或附件</li>
-            <li>卸载本应用将清除所有本地存储的数据</li>
-            <li>iCloud 同步数据需在 Apple ID 设置中管理</li>
-          </ul>
-        </section>
-
-        <section id="section-8">
-          <h2>8. 第三方服务</h2>
-          <p>本应用<strong>不集成</strong>任何第三方广告、分析、崩溃上报或追踪服务。使用的 Apple 系统框架包括：</p>
-          <ul>
-            <li><strong>SwiftData</strong> — 本地数据库存储</li>
-            <li><strong>Vision</strong> — 设备端 OCR 识别</li>
-            <li><strong>CloudKit</strong> — 可选 iCloud 同步</li>
-            <li><strong>CryptoKit</strong> — 备份校验</li>
-          </ul>
-          <p>以上框架均由 Apple 提供，相关数据处理遵循 <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple 隐私政策</a>。</p>
-        </section>
-
-        <section id="section-9">
-          <h2>9. 儿童隐私</h2>
-          <p>本应用可记录家庭成员（包括未成年人）的健康信息，但：</p>
-          <ul>
-            <li>所有数据仅存储在家长/监护人的设备本地</li>
-            <li>开发者无法访问任何儿童数据</li>
-            <li>建议家长/监护人对儿童的隐私设置进行管理</li>
-          </ul>
-        </section>
-
-        <section id="section-10">
-          <h2>10. 隐私政策的更新</h2>
-          <p>如本隐私政策发生变更，将在应用内、飞书公开链接或其他官方渠道公布更新版本。继续使用本应用即表示您同意更新后的政策。</p>
-        </section>
-
-        <section id="section-11">
-          <h2>11. 联系我们</h2>
-          <div class="contact-box">
-            <p>如对本隐私政策有任何疑问，请联系：</p>
-            <ul>
-              <li>邮箱：<span style="font-weight: 700;">[请填写用于隐私事务联系的邮箱]</span></li>
-            </ul>
-          </div>
-        </section>
-      </article>
-    </div>
+    <p class="footer" id="policyFooter">
+      本页面可直接部署为静态网页，不依赖任何外部脚本或样式。
+    </p>
   </main>
+
+  <script>
+    const policies = {
+      "zh-Hans": {
+        title: "患时记 隐私政策",
+        subtitle: "本页面说明本应用会处理哪些数据、如何使用、资料存放在哪里，以及您如何删除或导出这些资料。",
+        updated: "最后更新日期：2026 年 6 月 15 日",
+        updatedLabel: "最后更新日期",
+        contactLabel: "联系邮箱",
+        footer: "本页面可直接部署为静态网页，不依赖任何外部脚本或样式。",
+        note: "这是一份面向用户和审核的正式隐私政策页面，保留必要的合规说明，但不展开实现细节。",
+        contact: "teng7922@126.com",
+        languages: [
+          { key: "zh-Hans", label: "简体中文" },
+          { key: "zh-Hant", label: "繁體中文" },
+          { key: "en", label: "English" }
+        ],
+        sections: [
+          {
+            title: "1. 总则",
+            paragraphs: [
+              "患时记旨在把记录保留在您的设备上，本版本不进行云端同步，并尽量减少数据共享。"
+            ]
+          },
+          {
+            title: "2. 数据收集声明",
+            bullets: [
+              "本应用不会向开发者服务器收集或上传您的个人数据。",
+              "无需注册或登录。",
+              "不使用第三方广告、分析或崩溃上报服务。",
+              "不用于广告或营销追踪。",
+              "数据仅用于实现应用内的记录功能。"
+            ]
+          },
+          {
+            title: "3. 本地存储的数据",
+            paragraphs: [
+              "您的记录默认保存在设备本地。"
+            ],
+            bullets: [
+              "成员信息、病程记录、时间线记录、图片、识别文字和偏好设置都会保存在本地。",
+              "部分图片功能会在设备端处理内容，方便您在应用内使用。",
+              "无需创建账号即可使用本应用。"
+            ]
+          },
+          {
+            title: "4. 图片与文字识别",
+            bullets: [
+              "新增到记录中的图片会保留在您的设备上。",
+              "应用在识别图片中的文字时，会在设备端完成处理。",
+              "识别结果仅保存在本地，方便您后续搜索和查看。"
+            ]
+          },
+          {
+            title: "5. 数据导出与备份",
+            bullets: [
+              "您可随时导出加密备份。",
+              "备份文件使用您在导出时设置的密码保护。",
+              "导入备份时需要该密码。",
+              "导入后会用所选备份替换当前本地数据。"
+            ]
+          },
+          {
+            title: "6. 数据删除",
+            bullets: [
+              "可在应用内删除成员、病程、记录或附件。",
+              "卸载本应用会移除设备上的本地数据。"
+            ]
+          },
+          {
+            title: "7. 第三方服务",
+            paragraphs: [
+              "本应用不使用第三方广告、分析、崩溃上报或追踪服务；仅依赖应用正常运行所需的系统能力。"
+            ]
+          },
+          {
+            title: "8. 儿童隐私",
+            paragraphs: [
+              "本应用可以记录家庭成员（包括未成年人）的健康信息，但所有数据都保存在家长或监护人的设备本地。开发者无法存取这些数据。"
+            ]
+          },
+          {
+            title: "9. 隐私政策的更新",
+            paragraphs: [
+              "如本隐私政策发生变更，我们会在应用内或其他官方渠道更新。"
+            ]
+          },
+          {
+            title: "10. 联系我们",
+            paragraphs: [
+              "如对本隐私政策有任何疑问，请通过以下邮箱联系："
+            ],
+            contact: "teng7922@126.com"
+          }
+        ]
+      },
+      "zh-Hant": {
+        title: "患時記 隱私政策",
+        subtitle: "本頁面說明本應用會處理哪些資料、如何使用、資料存放在哪裡，以及您如何刪除或匯出這些資料。",
+        updated: "最後更新日期：2026 年 6 月 15 日",
+        updatedLabel: "最後更新日期",
+        contactLabel: "聯絡郵箱",
+        footer: "本頁面可直接部署為靜態網頁，不依賴任何外部腳本或樣式。",
+        note: "這是一份面向使用者與審核的正式隱私政策頁面，保留必要的合規說明，但不展開實作細節。",
+        contact: "teng7922@126.com",
+        languages: [
+          { key: "zh-Hans", label: "简体中文" },
+          { key: "zh-Hant", label: "繁體中文" },
+          { key: "en", label: "English" }
+        ],
+        sections: [
+          {
+            title: "1. 總則",
+            paragraphs: [
+              "患時記旨在把記錄保留在您的裝置上，本版本不進行雲端同步，並盡量減少資料共享。"
+            ]
+          },
+          {
+            title: "2. 資料收集聲明",
+            bullets: [
+              "本應用不會向開發者伺服器收集或上傳您的個人資料。",
+              "無需註冊或登入。",
+              "不使用第三方廣告、分析或當機上報服務。",
+              "不用於廣告或行銷追蹤。",
+              "資料僅用於實現應用內的記錄功能。"
+            ]
+          },
+          {
+            title: "3. 本地儲存的資料",
+            paragraphs: [
+              "您的記錄預設保存在裝置本地。"
+            ],
+            bullets: [
+              "成員資訊、病程記錄、時間線記錄、圖片、辨識文字和偏好設定都會保存在本地。",
+              "部分圖片功能會在裝置端處理內容，方便您在應用內使用。",
+              "無需建立帳號即可使用本應用。"
+            ]
+          },
+          {
+            title: "4. 圖片與文字辨識",
+            bullets: [
+              "新增到記錄中的圖片會保留在您的裝置上。",
+              "應用在辨識圖片中的文字時，會在裝置端完成處理。",
+              "辨識結果僅保存在本地，方便您後續搜尋和查看。"
+            ]
+          },
+          {
+            title: "5. 資料匯出與備份",
+            bullets: [
+              "您可隨時匯出加密備份。",
+              "備份檔案使用您在匯出時設定的密碼保護。",
+              "匯入備份時需要該密碼。",
+              "匯入後會用所選備份替換目前本地資料。"
+            ]
+          },
+          {
+            title: "6. 資料刪除",
+            bullets: [
+              "可在應用內刪除成員、病程、記錄或附件。",
+              "卸載本應用會移除裝置上的本地資料。"
+            ]
+          },
+          {
+            title: "7. 第三方服務",
+            paragraphs: [
+              "本應用不使用第三方廣告、分析、當機上報或追蹤服務；僅依賴應用正常運行所需的系統能力。"
+            ]
+          },
+          {
+            title: "8. 兒童隱私",
+            paragraphs: [
+              "本應用可以記錄家庭成員（包括未成年人）的健康資訊，但所有資料都保存在家長或監護人的裝置本地。開發者無法存取這些資料。"
+            ]
+          },
+          {
+            title: "9. 隱私政策的更新",
+            paragraphs: [
+              "如本隱私政策發生變更，我們會在應用內或其他官方管道更新。"
+            ]
+          },
+          {
+            title: "10. 聯絡我們",
+            paragraphs: [
+              "如對本隱私政策有任何疑問，請透過以下郵箱聯絡："
+            ],
+            contact: "teng7922@126.com"
+          }
+        ]
+      },
+      en: {
+        title: "CareTrail Privacy Policy",
+        subtitle: "This page explains what data the app handles, how it is used, where it is stored, and how you can delete or export it.",
+        updated: "Last updated: June 15, 2026",
+        updatedLabel: "Last updated",
+        contactLabel: "Contact email",
+        footer: "This page is a standalone static webpage and does not depend on external scripts or styles.",
+        note: "This page is written for users and review purposes. It keeps the required compliance facts, without implementation details.",
+        contact: "teng7922@126.com",
+        languages: [
+          { key: "zh-Hans", label: "简体中文" },
+          { key: "zh-Hant", label: "繁體中文" },
+          { key: "en", label: "English" }
+        ],
+        sections: [
+          {
+            title: "1. Overview",
+            paragraphs: [
+              "CareTrail is designed to keep your records on your device, without cloud sync in this version, and to minimize data sharing."
+            ]
+          },
+          {
+            title: "2. Data Collection Statement",
+            bullets: [
+              "The app does not collect your personal data on developer servers.",
+              "No account or sign-in is required.",
+              "No third-party advertising, analytics, or crash-reporting services are used.",
+              "No tracking is used for ads or marketing.",
+              "Data is used only to provide the record-keeping features in the app."
+            ]
+          },
+          {
+            title: "3. Local Data Storage",
+            paragraphs: [
+              "Your records are stored on your device by default."
+            ],
+            bullets: [
+              "Member details, illness records, timeline entries, images, recognized text, and preferences are kept locally.",
+              "Some image features process content on the device so it can be used inside the app.",
+              "The app can be used without creating an account."
+            ]
+          },
+          {
+            title: "4. Images and Text Recognition",
+            bullets: [
+              "Images added to records stay on your device.",
+              "When the app recognizes text in images, that processing happens on the device.",
+              "Recognized text is saved locally so you can search and review it later."
+            ]
+          },
+          {
+            title: "5. Export and Backup",
+            bullets: [
+              "You can export an encrypted backup at any time.",
+              "The backup is protected by the password you set during export.",
+              "Importing a backup requires that password.",
+              "Importing replaces the current local data with the selected backup."
+            ]
+          },
+          {
+            title: "6. Data Deletion",
+            bullets: [
+              "Delete members, illnesses, records, or attachments in the app.",
+              "Uninstalling the app removes locally stored data from the device."
+            ]
+          },
+          {
+            title: "7. Third-Party Services",
+            paragraphs: [
+              "The app does not use third-party advertising, analytics, crash-reporting, or tracking services. It only relies on system capabilities needed for the app to work."
+            ]
+          },
+          {
+            title: "8. Children's Privacy",
+            paragraphs: [
+              "The app can record health information for family members, including minors, but all data stays on the parent or guardian's device. The developer cannot access that data."
+            ]
+          },
+          {
+            title: "9. Policy Updates",
+            paragraphs: [
+              "If this policy changes, we will update it in the app or through other official channels."
+            ]
+          },
+          {
+            title: "10. Contact Us",
+            paragraphs: [
+              "If you have any questions about this privacy policy, contact:"
+            ],
+            contact: "teng7922@126.com"
+          }
+        ]
+      }
+    };
+
+    const contentEl = document.getElementById("policyContent");
+    const titleEl = document.getElementById("policyTitle");
+    const subtitleEl = document.getElementById("policySubtitle");
+    const updatedEl = document.getElementById("policyUpdated");
+    const updatedLabelEl = document.getElementById("updatedLabel");
+    const contactLabelEl = document.getElementById("contactLabel");
+    const emailEl = document.getElementById("policyEmail");
+    const footerEl = document.getElementById("policyFooter");
+    const switcherEl = document.getElementById("langSwitcher");
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+
+    function renderSection(section) {
+      const paragraphs = (section.paragraphs || [])
+        .map((text) => `<p>${escapeHtml(text)}</p>`)
+        .join("");
+      const bullets = (section.bullets || []).length
+        ? `<ul>${section.bullets.map((text) => `<li>${escapeHtml(text)}</li>`).join("")}</ul>`
+        : "";
+      const contact = section.contact
+        ? `<div class="contact-grid"><div class="contact-box"><span class="contact-label">${escapeHtml(currentPolicy.contactLabel)}</span><span class="contact-value"><a href="mailto:${escapeHtml(section.contact)}">${escapeHtml(section.contact)}</a></span></div></div>`
+        : "";
+      return `
+        <section class="card">
+          <h2>${escapeHtml(section.title)}</h2>
+          ${paragraphs}
+          ${bullets}
+          ${contact}
+        </section>
+      `;
+    }
+
+    function renderSwitcher(activeKey) {
+      switcherEl.innerHTML = currentPolicy.languages.map((item) => `
+        <button
+          class="lang-button"
+          type="button"
+          role="tab"
+          aria-pressed="${item.key === activeKey ? "true" : "false"}"
+          data-lang="${item.key}"
+        >${escapeHtml(item.label)}</button>
+      `).join("");
+    }
+
+    let currentPolicy = policies["zh-Hans"];
+
+    function setLanguage(lang) {
+      currentPolicy = policies[lang] || policies["zh-Hans"];
+      document.documentElement.lang = lang;
+      document.title = currentPolicy.title;
+      titleEl.textContent = currentPolicy.title;
+      subtitleEl.textContent = currentPolicy.subtitle;
+      updatedEl.textContent = currentPolicy.updated;
+      updatedLabelEl.textContent = currentPolicy.updatedLabel;
+      contactLabelEl.textContent = currentPolicy.contactLabel;
+      emailEl.textContent = currentPolicy.contact;
+      emailEl.href = `mailto:${currentPolicy.contact}`;
+      footerEl.textContent = currentPolicy.footer;
+      contentEl.innerHTML = [
+        currentPolicy.note
+          ? `<section class="note">${escapeHtml(currentPolicy.note)}</section>`
+          : "",
+        ...currentPolicy.sections.map(renderSection)
+      ].join("");
+      renderSwitcher(lang);
+      switcherEl.querySelectorAll("button[data-lang]").forEach((button) => {
+        button.addEventListener("click", () => setLanguage(button.dataset.lang));
+      });
+    }
+
+    const detected = (() => {
+      const locale = (navigator.language || "zh-Hans").toLowerCase();
+      if (locale.startsWith("zh-hant") || locale.startsWith("zh-tw") || locale.startsWith("zh-hk")) {
+        return "zh-Hant";
+      }
+      if (locale.startsWith("en")) {
+        return "en";
+      }
+      return "zh-Hans";
+    })();
+
+    setLanguage(detected);
+  </script>
 </body>
 </html>
