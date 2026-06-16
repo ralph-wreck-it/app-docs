@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="CareTrail / 患时记 帮助与支持">
+  <title>患时记 帮助与支持</title>
+  <style>
+    :root {
+      --bg: #f3efe7;
+      --bg-deep: #e8dfd1;
+      --surface: rgba(255, 252, 247, 0.88);
+      --surface-solid: #fffdf8;
+      --text: #1f2933;
+      --muted: #56616b;
+      --line: rgba(58, 73, 82, 0.14);
+      --shadow: 0 28px 80px rgba(39, 46, 53, 0.12);
+      --accent: #0f766e;
+      --accent-strong: #134e4a;
+      --accent-soft: rgba(15, 118, 110, 0.12);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(15, 118, 110, 0.14), transparent 34%),
+        radial-gradient(circle at top right, rgba(180, 83, 9, 0.12), transparent 28%),
+        linear-gradient(180deg, #f6f1e8 0%, var(--bg) 38%, #f8f5ef 100%);
+      font-family:
+        "Iowan Old Style",
+        "Palatino Linotype",
+        "Book Antiqua",
+        Georgia,
+        serif;
+      line-height: 1.65;
+      letter-spacing: 0.01em;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(1040px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.72)),
+        linear-gradient(135deg, rgba(15, 118, 110, 0.08), rgba(180, 83, 9, 0.05));
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -8% -48% auto;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(15, 118, 110, 0.16) 0%, rgba(15, 118, 110, 0) 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 14px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+      font: 700 0.84rem/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      max-width: 68ch;
+      margin: 16px 0 0;
+      color: var(--muted);
+      font: 400 1.06rem/1.75 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .lang-switcher {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .lang-button {
+      appearance: none;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 11px 16px;
+      background: rgba(255, 255, 255, 0.76);
+      color: var(--muted);
+      font: 700 0.94rem/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      cursor: pointer;
+      transition: transform 150ms ease, background 150ms ease, border-color 150ms ease, color 150ms ease;
+    }
+
+    .lang-button:hover {
+      transform: translateY(-1px);
+      color: var(--text);
+      border-color: rgba(15, 118, 110, 0.24);
+    }
+
+    .lang-button[aria-pressed="true"] {
+      background: var(--accent-strong);
+      color: #fff;
+      border-color: var(--accent-strong);
+      box-shadow: 0 10px 24px rgba(19, 78, 74, 0.22);
+    }
+
+    .content {
+      display: grid;
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .card {
+      padding: 24px 24px 22px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: var(--surface);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 14px 40px rgba(44, 53, 61, 0.07);
+    }
+
+    .card h2 {
+      margin: 0 0 12px;
+      color: var(--accent-strong);
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      margin: 0 0 12px;
+      color: var(--text);
+      font: 400 1rem/1.75 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .card ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: var(--text);
+      font: 400 1rem/1.72 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .card li + li {
+      margin-top: 10px;
+    }
+
+    .card strong {
+      color: var(--accent-strong);
+    }
+
+    .faq-question {
+      font-weight: 700;
+      color: var(--accent-strong);
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-top: 6px;
+    }
+
+    .contact-box {
+      padding: 16px 18px;
+      border-radius: var(--radius-md);
+      background: rgba(15, 118, 110, 0.06);
+      border: 1px solid rgba(15, 118, 110, 0.14);
+    }
+
+    .contact-label {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--muted);
+      font: 700 0.82rem/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .contact-value {
+      color: var(--text);
+      font: 600 1rem/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      word-break: break-word;
+    }
+
+    .footer {
+      margin: 20px 0 0;
+      color: var(--muted);
+      font: 500 0.92rem/1.6 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: min(100% - 20px, 1040px);
+        padding-top: 14px;
+      }
+
+      .hero,
+      .card {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 10vw, 3rem);
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+
+      .hero,
+      .card {
+        box-shadow: none;
+        background: #fff;
+      }
+
+      .lang-switcher {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">CareTrail / 患时记</div>
+      <h1 id="pageTitle">帮助与支持</h1>
+      <p class="subtitle" id="pageSubtitle">
+        了解如何使用患时记，以及遇到问题时如何联系我们。
+      </p>
+      <div class="lang-switcher" id="langSwitcher" role="tablist" aria-label="Language selector"></div>
+    </header>
+
+    <article class="content" id="pageContent" aria-live="polite"></article>
+
+    <p class="footer" id="pageFooter">
+      本页面可直接部署为静态网页，不依赖任何外部脚本或样式。
+    </p>
+  </main>
+
+  <script>
+    const supportData = {
+      "zh-Hans": {
+        title: "帮助与支持",
+        subtitle: "了解如何使用患时记，以及遇到问题时如何联系我们。",
+        footer: "本页面可直接部署为静态网页，不依赖任何外部脚本或样式。",
+        contact: "teng7922@126.com",
+        languages: [
+          { key: "zh-Hans", label: "简体中文" },
+          { key: "zh-Hant", label: "繁體中文" },
+          { key: "en", label: "English" }
+        ],
+        sections: [
+          {
+            title: "关于患时记",
+            paragraphs: [
+              "患时记是一款用于记录家庭成员（包括宠物）疾病事件、诊疗过程的 iOS 应用。您可以为每位成员建立病程，在时间线中添加记录和图片，还可以导出加密备份。"
+            ]
+          },
+          {
+            title: "快速开始",
+            bullets: [
+              "下载并打开应用后，点击首页的\"添加成员\"按钮创建家庭成员或宠物。",
+              "点击成员进入其详情页，点击\"新建病程\"开始记录一次疾病事件。",
+              "在病程中，您可以添加文字记录、拍照或从相册选择图片。",
+              "应用会自动识别图片中的文字，方便后续搜索。"
+            ]
+          },
+          {
+            title: "常见问题",
+            faq: [
+              {
+                q: "数据会同步到云端吗？",
+                a: "当前版本的数据保留在您的设备本地，不会上传到云端。您可以通过导出加密备份来手动保存数据。"
+              },
+              {
+                q: "如何导出备份？",
+                a: "在设置页面点击\"导出备份\"，设置一个密码后即可生成加密的备份文件。该文件可以通过系统分享功能保存到其他位置。"
+              },
+              {
+                q: "如何导入备份？",
+                a: "在设置页面点击\"导入备份\"，选择之前导出的备份文件并输入密码即可恢复数据。导入会替换当前设备上的所有本地数据。"
+              },
+              {
+                q: "是否需要注册账号？",
+                a: "不需要。患时记无需注册或登录即可使用全部功能。"
+              },
+              {
+                q: "应用支持哪些语言？",
+                a: "目前支持简体中文、繁体中文和 English。应用会自动跟随系统语言设置。"
+              }
+            ]
+          },
+          {
+            title: "隐私说明",
+            paragraphs: [
+              "患时记高度重视您的隐私。所有数据仅保存在您的设备本地，不会上传到开发者服务器。应用不使用第三方广告、分析或崩溃上报服务。"
+            ],
+            bullets: [
+              "详细隐私政策请访问隐私政策页面。",
+              "您可随时在应用内删除任何数据。",
+              "卸载应用会移除设备上的所有本地数据。"
+            ]
+          },
+          {
+            title: "联系我们",
+            paragraphs: [
+              "如果您遇到任何问题或有任何建议，请通过以下方式联系我们："
+            ],
+            contact: "teng7922@126.com"
+          }
+        ]
+      },
+      "zh-Hant": {
+        title: "幫助與支援",
+        subtitle: "瞭解如何使用患時記，以及遇到問題時如何聯絡我們。",
+        footer: "本頁面可直接部署為靜態網頁，不依賴任何外部腳本或樣式。",
+        contact: "teng7922@126.com",
+        languages: [
+          { key: "zh-Hans", label: "简体中文" },
+          { key: "zh-Hant", label: "繁體中文" },
+          { key: "en", label: "English" }
+        ],
+        sections: [
+          {
+            title: "關於患時記",
+            paragraphs: [
+              "患時記是一款用於記錄家庭成員（包括寵物）疾病事件、診療過程的 iOS 應用。您可以為每位成員建立病程，在時間線中新增記錄和圖片，還可以匯出加密備份。"
+            ]
+          },
+          {
+            title: "快速開始",
+            bullets: [
+              "下載並開啟應用後，點選首頁的「新增成員」按鈕建立家庭成員或寵物。",
+              "點選成員進入其詳情頁，點選「新增病程」開始記錄一次疾病事件。",
+              "在病程中，您可以新增文字記錄、拍照或從相簿選擇圖片。",
+              "應用會自動辨識圖片中的文字，方便後續搜尋。"
+            ]
+          },
+          {
+            title: "常見問題",
+            faq: [
+              {
+                q: "資料會同步到雲端嗎？",
+                a: "目前版本的資料保留在您的裝置本地，不會上傳到雲端。您可以透過匯出加密備份來手動儲存資料。"
+              },
+              {
+                q: "如何匯出備份？",
+                a: "在設定頁面點選「匯出備份」，設定一個密碼後即可生成加密的備份檔案。該檔案可以透過系統分享功能儲存到其他位置。"
+              },
+              {
+                q: "如何匯入備份？",
+                a: "在設定頁面點選「匯入備份」，選擇之前匯出的備份檔案並輸入密碼即可恢復資料。匯入會取代目前裝置上的所有本地資料。"
+              },
+              {
+                q: "是否需要註冊帳號？",
+                a: "不需要。患時記無需註冊或登入即可使用全部功能。"
+              },
+              {
+                q: "應用支援哪些語言？",
+                a: "目前支援簡體中文、繁體中文和 English。應用會自動跟隨系統語言設定。"
+              }
+            ]
+          },
+          {
+            title: "隱私說明",
+            paragraphs: [
+              "患時記高度重視您的隱私。所有資料僅保存在您的裝置本地，不會上傳到開發者伺服器。應用不使用第三方廣告、分析或當機上報服務。"
+            ],
+            bullets: [
+              "詳細隱私政策請造訪隱私政策頁面。",
+              "您可隨時在應用內刪除任何資料。",
+              "解除安裝應用會移除裝置上的所有本地資料。"
+            ]
+          },
+          {
+            title: "聯絡我們",
+            paragraphs: [
+              "如果您遇到任何問題或有任何建議，請透過以下方式聯絡我們："
+            ],
+            contact: "teng7922@126.com"
+          }
+        ]
+      },
+      en: {
+        title: "Help & Support",
+        subtitle: "Learn how to use CareTrail and how to contact us when you need help.",
+        footer: "This page is a standalone static webpage and does not depend on external scripts or styles.",
+        contact: "teng7922@126.com",
+        languages: [
+          { key: "zh-Hans", label: "简体中文" },
+          { key: "zh-Hant", label: "繁體中文" },
+          { key: "en", label: "English" }
+        ],
+        sections: [
+          {
+            title: "About CareTrail",
+            paragraphs: [
+              "CareTrail is an iOS app for recording illness events and medical journeys for family members (including pets). You can create profiles for each member, build timelines with records and images, and export encrypted backups."
+            ]
+          },
+          {
+            title: "Quick Start",
+            bullets: [
+              "After downloading the app, tap \"Add Member\" on the home screen to create a family member or pet.",
+              "Tap a member to open their detail page, then tap \"New Illness\" to start recording an illness event.",
+              "Within an illness, you can add text notes, take photos, or pick images from your library.",
+              "The app automatically recognizes text in images for easy searching later."
+            ]
+          },
+          {
+            title: "FAQ",
+            faq: [
+              {
+                q: "Is my data synced to the cloud?",
+                a: "In the current version, all data stays on your device. You can export encrypted backups to manually save your data."
+              },
+              {
+                q: "How do I export a backup?",
+                a: "Go to Settings and tap \"Export Backup\". Set a password and an encrypted backup file will be created. You can save it elsewhere using the system share sheet."
+              },
+              {
+                q: "How do I import a backup?",
+                a: "Go to Settings and tap \"Import Backup\". Select a previously exported backup file and enter the password. Importing replaces all local data on the current device."
+              },
+              {
+                q: "Do I need an account?",
+                a: "No. CareTrail does not require registration or login to use all its features."
+              },
+              {
+                q: "What languages are supported?",
+                a: "Currently: Simplified Chinese, Traditional Chinese, and English. The app follows your system language settings."
+              }
+            ]
+          },
+          {
+            title: "Privacy",
+            paragraphs: [
+              "CareTrail takes your privacy seriously. All data is stored locally on your device and is not uploaded to developer servers. The app does not use third-party advertising, analytics, or crash-reporting services."
+            ],
+            bullets: [
+              "See the privacy policy page for full details.",
+              "You can delete any data within the app at any time.",
+              "Uninstalling the app removes all local data from the device."
+            ]
+          },
+          {
+            title: "Contact Us",
+            paragraphs: [
+              "If you have any questions or suggestions, please reach out:"
+            ],
+            contact: "teng7922@126.com"
+          }
+        ]
+      }
+    };
+
+    const contentEl = document.getElementById("pageContent");
+    const titleEl = document.getElementById("pageTitle");
+    const subtitleEl = document.getElementById("pageSubtitle");
+    const footerEl = document.getElementById("pageFooter");
+    const switcherEl = document.getElementById("langSwitcher");
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+
+    function renderSection(section) {
+      const paragraphs = (section.paragraphs || [])
+        .map((text) => `<p>${escapeHtml(text)}</p>`)
+        .join("");
+      const bullets = (section.bullets || []).length
+        ? `<ul>${section.bullets.map((text) => `<li>${escapeHtml(text)}</li>`).join("")}</ul>`
+        : "";
+      const faq = (section.faq || []).length
+        ? `<dl>${section.faq.map((item) =>
+            `<dt class="faq-question">${escapeHtml(item.q)}</dt><dd><p>${escapeHtml(item.a)}</p></dd>`
+          ).join("")}</dl>`
+        : "";
+      const contact = section.contact
+        ? `<div class="contact-grid"><div class="contact-box"><span class="contact-label">${escapeHtml(currentData.contactLabel || "Contact")}</span><span class="contact-value"><a href="mailto:${escapeHtml(section.contact)}">${escapeHtml(section.contact)}</a></span></div></div>`
+        : "";
+      return `
+        <section class="card">
+          <h2>${escapeHtml(section.title)}</h2>
+          ${paragraphs}
+          ${bullets}
+          ${faq}
+          ${contact}
+        </section>
+      `;
+    }
+
+    function renderSwitcher(activeKey) {
+      switcherEl.innerHTML = currentData.languages.map((item) => `
+        <button
+          class="lang-button"
+          type="button"
+          role="tab"
+          aria-pressed="${item.key === activeKey ? "true" : "false"}"
+          data-lang="${item.key}"
+        >${escapeHtml(item.label)}</button>
+      `).join("");
+    }
+
+    let currentData = supportData["zh-Hans"];
+
+    function setLanguage(lang) {
+      currentData = supportData[lang] || supportData["zh-Hans"];
+      document.documentElement.lang = lang;
+      document.title = currentData.title + " — CareTrail";
+      titleEl.textContent = currentData.title;
+      subtitleEl.textContent = currentData.subtitle;
+      footerEl.textContent = currentData.footer;
+      contentEl.innerHTML = currentData.sections.map(renderSection).join("");
+      renderSwitcher(lang);
+      switcherEl.querySelectorAll("button[data-lang]").forEach((button) => {
+        button.addEventListener("click", () => setLanguage(button.dataset.lang));
+      });
+    }
+
+    const detected = (() => {
+      const locale = (navigator.language || "zh-Hans").toLowerCase();
+      if (locale.startsWith("zh-hant") || locale.startsWith("zh-tw") || locale.startsWith("zh-hk")) {
+        return "zh-Hant";
+      }
+      if (locale.startsWith("en")) {
+        return "en";
+      }
+      return "zh-Hans";
+    })();
+
+    setLanguage(detected);
+  </script>
+</body>
+</html>
