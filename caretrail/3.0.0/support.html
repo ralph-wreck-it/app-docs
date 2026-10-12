@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="CareTrail / 患时记 帮助与支持">
+  <title>患时记 帮助与支持</title>
+  <style>
+    :root {
+      --bg: #f3efe7;
+      --bg-deep: #e8dfd1;
+      --surface: rgba(255, 252, 247, 0.88);
+      --surface-solid: #fffdf8;
+      --text: #1f2933;
+      --muted: #56616b;
+      --line: rgba(58, 73, 82, 0.14);
+      --shadow: 0 28px 80px rgba(39, 46, 53, 0.12);
+      --accent: #0f766e;
+      --accent-strong: #134e4a;
+      --accent-soft: rgba(15, 118, 110, 0.12);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(15, 118, 110, 0.14), transparent 34%),
+        radial-gradient(circle at top right, rgba(180, 83, 9, 0.12), transparent 28%),
+        linear-gradient(180deg, #f6f1e8 0%, var(--bg) 38%, #f8f5ef 100%);
+      font-family:
+        "Iowan Old Style",
+        "Palatino Linotype",
+        "Book Antiqua",
+        Georgia,
+        serif;
+      line-height: 1.65;
+      letter-spacing: 0.01em;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(1040px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.72)),
+        linear-gradient(135deg, rgba(15, 118, 110, 0.08), rgba(180, 83, 9, 0.05));
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -8% -48% auto;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(15, 118, 110, 0.16) 0%, rgba(15, 118, 110, 0) 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 14px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+      font: 700 0.84rem/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      max-width: 68ch;
+      margin: 16px 0 0;
+      color: var(--muted);
+      font: 400 1.06rem/1.75 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .lang-switcher {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .lang-button {
+      appearance: none;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 11px 16px;
+      background: rgba(255, 255, 255, 0.76);
+      color: var(--muted);
+      font: 700 0.94rem/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      cursor: pointer;
+      transition: transform 150ms ease, background 150ms ease, border-color 150ms ease, color 150ms ease;
+    }
+
+    .lang-button:hover {
+      transform: translateY(-1px);
+      color: var(--text);
+      border-color: rgba(15, 118, 110, 0.24);
+    }
+
+    .lang-button[aria-pressed="true"] {
+      background: var(--accent-strong);
+      color: #fff;
+      border-color: var(--accent-strong);
+      box-shadow: 0 10px 24px rgba(19, 78, 74, 0.22);
+    }
+
+    .content {
+      display: grid;
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .card {
+      padding: 24px 24px 22px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: var(--surface);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 14px 40px rgba(44, 53, 61, 0.07);
+    }
+
+    .card h2 {
+      margin: 0 0 12px;
+      color: var(--accent-strong);
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      margin: 0 0 12px;
+      color: var(--text);
+      font: 400 1rem/1.75 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .card ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: var(--text);
+      font: 400 1rem/1.72 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .card li + li {
+      margin-top: 10px;
+    }
+
+    .card strong {
+      color: var(--accent-strong);
+    }
+
+    .faq-question {
+      font-weight: 700;
+      color: var(--accent-strong);
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-top: 6px;
+    }
+
+    .contact-box {
+      padding: 16px 18px;
+      border-radius: var(--radius-md);
+      background: rgba(15, 118, 110, 0.06);
+      border: 1px solid rgba(15, 118, 110, 0.14);
+    }
+
+    .contact-label {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--muted);
+      font: 700 0.82rem/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .contact-value {
+      color: var(--text);
+      font: 600 1rem/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      word-break: break-word;
+    }
+
+    .footer {
+      margin: 20px 0 0;
+      color: var(--muted);
+      font: 500 0.92rem/1.6 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: min(100% - 20px, 1040px);
+        padding-top: 14px;
+      }
+
+      .hero,
+      .card {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 10vw, 3rem);
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+
+      .hero,
+      .card {
+        box-shadow: none;
+        background: #fff;
+      }
+
+      .lang-switcher {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">CareTrail / 患时记</div>
+      <h1 id="pageTitle">帮助与支持</h1>
+      <p class="subtitle" id="pageSubtitle">
+        了解如何使用患时记，以及遇到问题时如何联系我们。
+      </p>
+      <div class="lang-switcher" id="langSwitcher" role="tablist" aria-label="Language selector"></div>
+    </header>
+
+    <article class="content" id="pageContent" aria-live="polite"></article>
+
+    <p class="footer" id="pageFooter">
+      © 2026 患时记 CareTrail
+    </p>
+  </main>
+
+  <script>
+    const supportData = {
+      "zh-Hans": {
+        title: "帮助与支持",
+        subtitle: "了解如何使用患时记，以及遇到问题时如何联系我们。",
+        footer: "© 2026 患时记 CareTrail",
+        contact: "teng7922@126.com",
+        languages: [
+          { key: "zh-Hans", label: "简体中文" },
+          { key: "zh-Hant", label: "繁體中文" },
+          { key: "en", label: "English" }
+        ],
+        sections: [
+          {
+            title: "关于患时记",
+            paragraphs: [
+              "患时记是一款用于记录家庭成员（包括宠物）疾病事件、诊疗过程的 iOS 应用。您可以为每位成员建立病程，在时间线中添加记录和图片，还可以导出加密备份。",
+              "患时记仅用于记录和整理健康信息，不提供医疗建议或诊断。如有健康问题，请咨询专业医生或医疗机构。"
+            ]
+          },
+          {
+            title: "版本更新",
+            paragraphs: [
+              "当前版本：3.0.0。版本更新内容请以 App Store 页面为准。"
+            ]
+          },
+          {
+            title: "长期指标",
+            paragraphs: [
+              "患时记也支持长期指标记录，适合需要持续观察的项目，比如血压、血糖等。",
+              "您可以为同一位成员持续添加指标记录，并通过趋势图和历史列表查看变化。"
+            ],
+            bullets: [
+              "血压目前支持记录收缩压和舒张压。",
+              "血糖目前支持记录连续的数值变化。",
+              "长期指标数据默认保存在本地，开启 iCloud 同步后会随您的账户同步，便于日后继续跟踪。"
+            ]
+          },
+          {
+            title: "快速开始",
+            bullets: [
+              "下载并打开应用后，点击首页的\"添加成员\"按钮创建家庭成员或宠物。",
+              "点击成员进入其详情页，点击\"新建病程\"开始记录一次疾病事件。",
+              "在病程中，您可以添加文字记录、拍照或从相册选择图片。",
+              "应用会自动识别图片中的文字，方便后续搜索。"
+            ]
+          },
+          {
+            title: "常见问题",
+            faq: [
+              {
+                q: "数据会同步到云端吗？",
+                a: "默认情况下，数据仅保存在您的设备本地。在设置中开启 iCloud 同步后，病程记录会通过您本人的 iCloud 账户在您的多台设备间同步；数据仅存于您本人的 iCloud 账户，不会上传到开发者服务器。您也可以通过导出加密备份手动保存数据。"
+              },
+              {
+                q: "如何开启 iCloud 同步？",
+                a: "在应用内设置页面打开 iCloud 同步开关。开启前请确保已在系统设置中登录 iCloud；如需多台设备同步，请使用同一 Apple ID。关闭开关只停止本设备的同步，不会删除已存入 iCloud 的数据。"
+              },
+              {
+                q: "如何导出备份？",
+                a: "在设置页面点击\"导出备份\"，设置一个密码后即可生成加密的备份文件。该文件可以通过系统分享功能保存到其他位置。"
+              },
+              {
+                q: "如何导入备份？",
+                a: "在设置页面点击\"导入备份\"，选择之前导出的备份文件并输入密码即可恢复数据。导入会替换当前设备上的所有本地数据。"
+              },
+              {
+                q: "是否需要注册账号？",
+                a: "无需注册患时记账号即可使用基础功能。购买或恢复高级功能时，需要使用 Apple 账户；买断为一次性购买，没有订阅。"
+              },
+              {
+                q: "如何恢复买断或兑换优惠码？",
+                a: "如重装后高级功能未解锁，请在设置的“高级功能”入口打开买断页面并点“恢复购买”，使用购买时的 Apple 账户操作。兑换优惠码可在买断页面选择“兑换优惠码”，具体优惠内容和适用条件以 Apple 页面为准。基础病程 PDF 导出可免费使用。"
+              },
+              {
+                q: "应用支持哪些语言？",
+                a: "目前支持简体中文、繁体中文和 English。应用会自动跟随系统语言设置。"
+              },
+              {
+                q: "应用会发送通知吗？",
+                a: "用药提醒和复诊提醒会通过本地通知发送，内容不会上传到任何服务器。不需要时，可在系统设置中关闭通知，或在应用内删除对应提醒。"
+              },
+              {
+                q: "患时记提供医疗建议吗？",
+                a: "不提供。患时记仅用于记录和整理健康信息，不能替代专业医疗建议；如有健康问题，请咨询专业医生。"
+              }
+            ]
+          },
+          {
+            title: "隐私说明",
+            paragraphs: [
+              "患时记高度重视您的隐私。所有数据默认仅保存在您的设备本地，不会上传到开发者服务器；开启 iCloud 同步后，数据仅存于您本人的 iCloud 账户。应用不使用第三方广告、分析或崩溃上报服务。"
+            ],
+            bullets: [
+              "详细隐私政策请访问隐私政策页面。",
+              "您可随时在应用内删除任何数据。",
+              "卸载应用会移除设备上的所有本地数据。"
+            ]
+          },
+          {
+            title: "联系我们",
+            paragraphs: [
+              "如果您遇到任何问题或有任何建议，请通过以下方式联系我们："
+            ],
+            contact: "teng7922@126.com"
+          }
+        ]
+      },
+      "zh-Hant": {
+        title: "幫助與支援",
+        subtitle: "瞭解如何使用患時記，以及遇到問題時如何聯絡我們。",
+        footer: "© 2026 患時記 CareTrail",
+        contact: "teng7922@126.com",
+        languages: [
+          { key: "zh-Hans", label: "简体中文" },
+          { key: "zh-Hant", label: "繁體中文" },
+          { key: "en", label: "English" }
+        ],
+        sections: [
+          {
+            title: "關於患時記",
+            paragraphs: [
+              "患時記是一款用於記錄家庭成員（包括寵物）疾病事件、診療過程的 iOS 應用。您可以為每位成員建立病程，在時間線中新增記錄和圖片，還可以匯出加密備份。",
+              "患時記僅用於記錄和整理健康資訊，不提供醫療建議或診斷。如有健康問題，請諮詢專業醫師或醫療機構。"
+            ]
+          },
+          {
+            title: "版本更新",
+            paragraphs: [
+              "目前版本：3.0.0。版本更新內容請以 App Store 頁面為準。"
+            ]
+          },
+          {
+            title: "長期指標",
+            paragraphs: [
+              "患時記也支援長期指標記錄，適合需要持續觀察的項目，例如血壓、血糖等。",
+              "您可以為同一位成員持續新增指標記錄，並透過趨勢圖和歷史列表查看變化。"
+            ],
+            bullets: [
+              "血壓目前支援記錄收縮壓和舒張壓。",
+              "血糖目前支援記錄連續的數值變化。",
+              "長期指標資料預設保存在本地，開啟 iCloud 同步後會隨您的帳號同步，方便日後持續追蹤。"
+            ]
+          },
+          {
+            title: "快速開始",
+            bullets: [
+              "下載並開啟應用後，點選首頁的「新增成員」按鈕建立家庭成員或寵物。",
+              "點選成員進入其詳情頁，點選「新增病程」開始記錄一次疾病事件。",
+              "在病程中，您可以新增文字記錄、拍照或從相簿選擇圖片。",
+              "應用會自動辨識圖片中的文字，方便後續搜尋。"
+            ]
+          },
+          {
+            title: "常見問題",
+            faq: [
+              {
+                q: "資料會同步到雲端嗎？",
+                a: "預設情況下，資料僅保存在您的裝置本地。在設定中開啟 iCloud 同步後，病程記錄會透過您本人的 iCloud 帳號在您的多台裝置間同步；資料僅存於您本人的 iCloud 帳號，不會上傳到開發者伺服器。您也可以透過匯出加密備份手動儲存資料。"
+              },
+              {
+                q: "如何開啟 iCloud 同步？",
+                a: "在應用內設定頁面開啟 iCloud 同步開關。開啟前請確保已在系統設定中登入 iCloud；如需多台裝置同步，請使用同一 Apple ID。關閉開關只會停止本裝置的同步，不會刪除已存入 iCloud 的資料。"
+              },
+              {
+                q: "如何匯出備份？",
+                a: "在設定頁面點選「匯出備份」，設定一個密碼後即可生成加密的備份檔案。該檔案可以透過系統分享功能儲存到其他位置。"
+              },
+              {
+                q: "如何匯入備份？",
+                a: "在設定頁面點選「匯入備份」，選擇之前匯出的備份檔案並輸入密碼即可恢復資料。匯入會取代目前裝置上的所有本地資料。"
+              },
+              {
+                q: "是否需要註冊帳號？",
+                a: "無需註冊患時記帳號即可使用基本功能。購買或恢復進階功能時，需要使用 Apple 帳號；買斷為一次性購買，沒有訂閱。"
+              },
+              {
+                q: "如何恢復買斷或兌換優惠碼？",
+                a: "如重新安裝後進階功能未解鎖，請在設定的「進階功能」入口開啟買斷頁面並點選「恢復購買」，使用購買時的 Apple 帳號操作。兌換優惠碼可在買斷頁面選擇「兌換優惠碼」，具體優惠內容和適用條件以 Apple 頁面為準。基本病程 PDF 匯出可免費使用。"
+              },
+              {
+                q: "應用支援哪些語言？",
+                a: "目前支援簡體中文、繁體中文和 English。應用會自動跟隨系統語言設定。"
+              },
+              {
+                q: "應用會傳送通知嗎？",
+                a: "用藥提醒和複診提醒會透過本地通知傳送，內容不會上傳到任何伺服器。不需要時，可在系統設定中關閉通知，或在應用內刪除對應提醒。"
+              },
+              {
+                q: "患時記提供醫療建議嗎？",
+                a: "不提供。患時記僅用於記錄和整理健康資訊，不能取代專業醫療建議；如有健康問題，請諮詢專業醫師。"
+              }
+            ]
+          },
+          {
+            title: "隱私說明",
+            paragraphs: [
+              "患時記高度重視您的隱私。所有資料預設僅保存在您的裝置本地，不會上傳到開發者伺服器；開啟 iCloud 同步後，資料僅存於您本人的 iCloud 帳號。應用不使用第三方廣告、分析或當機上報服務。"
+            ],
+            bullets: [
+              "詳細隱私政策請造訪隱私政策頁面。",
+              "您可隨時在應用內刪除任何資料。",
+              "解除安裝應用會移除裝置上的所有本地資料。"
+            ]
+          },
+          {
+            title: "聯絡我們",
+            paragraphs: [
+              "如果您遇到任何問題或有任何建議，請透過以下方式聯絡我們："
+            ],
+            contact: "teng7922@126.com"
+          }
+        ]
+      },
+      en: {
+        title: "Help & Support",
+        subtitle: "Learn how to use CareTrail and how to contact us when you need help.",
+        footer: "© 2026 CareTrail",
+        contact: "teng7922@126.com",
+        languages: [
+          { key: "zh-Hans", label: "简体中文" },
+          { key: "zh-Hant", label: "繁體中文" },
+          { key: "en", label: "English" }
+        ],
+        sections: [
+          {
+            title: "About CareTrail",
+            paragraphs: [
+              "CareTrail is an iOS app for recording illness events and medical journeys for family members (including pets). You can create profiles for each member, build timelines with records and images, and export encrypted backups.",
+              "CareTrail is a tool for recording and organizing health information only. It does not provide medical advice or diagnosis. If you have any health concerns, please consult a doctor or healthcare professional."
+            ]
+          },
+          {
+            title: "Version Update",
+            paragraphs: [
+              "Current version: 3.0.0. See the App Store page for version release notes."
+            ]
+          },
+          {
+            title: "Long-Term Metrics",
+            paragraphs: [
+              "CareTrail also supports long-term metric tracking for data you want to observe over time, such as blood pressure and blood glucose.",
+              "You can keep adding readings for the same member and review the trend chart and history list to see how things change."
+            ],
+            bullets: [
+              "Blood pressure currently supports systolic and diastolic values.",
+              "Blood glucose currently supports a continuous series of numeric readings.",
+              "Long-term metric data stays on the device by default and is included in iCloud Sync once enabled, so you can keep tracking it over time."
+            ]
+          },
+          {
+            title: "Quick Start",
+            bullets: [
+              "After downloading the app, tap \"Add Member\" on the home screen to create a family member or pet.",
+              "Tap a member to open their detail page, then tap \"New Illness\" to start recording an illness event.",
+              "Within an illness, you can add text notes, take photos, or pick images from your library.",
+              "The app automatically recognizes text in images for easy searching later."
+            ]
+          },
+          {
+            title: "FAQ",
+            faq: [
+              {
+                q: "Is my data synced to the cloud?",
+                a: "By default, all data stays on your device. When iCloud Sync is enabled in Settings, illness records sync between your devices through your own iCloud account; data stays within your own iCloud account and is never uploaded to developer servers. You can also export encrypted backups to save your data manually."
+              },
+              {
+                q: "How do I turn on iCloud Sync?",
+                a: "Open Settings inside the app and turn on iCloud Sync. Make sure you are signed in to iCloud in the system Settings; to sync across devices, sign in with the same Apple ID. Turning the switch off only stops syncing on this device and does not delete data already stored in iCloud."
+              },
+              {
+                q: "How do I export a backup?",
+                a: "Go to Settings and tap \"Export Backup\". Set a password and an encrypted backup file will be created. You can save it elsewhere using the system share sheet."
+              },
+              {
+                q: "How do I import a backup?",
+                a: "Go to Settings and tap \"Import Backup\". Select a previously exported backup file and enter the password. Importing replaces all local data on the current device."
+              },
+              {
+                q: "Do I need an account?",
+                a: "No CareTrail account is required for basic features. An Apple Account is needed to purchase or restore advanced features. The unlock is a one-time purchase with no subscription."
+              },
+              {
+                q: "How do I restore a purchase or redeem an offer code?",
+                a: "If advanced features are still locked after reinstalling, open the purchase page from Settings > Advanced Features and tap Restore Purchase using the Apple Account used for the purchase. To redeem a code, choose Redeem Offer Code on the purchase page. Apple shows the applicable offer and terms. Basic illness PDF export remains free."
+              },
+              {
+                q: "What languages are supported?",
+                a: "Currently: Simplified Chinese, Traditional Chinese, and English. The app follows your system language settings."
+              },
+              {
+                q: "Does the app send notifications?",
+                a: "Medication and follow-up reminders are delivered as local notifications; no content is uploaded to any server for this purpose. If you don't need them, you can turn off notifications in the system Settings or delete the reminders in the app."
+              },
+              {
+                q: "Does CareTrail provide medical advice?",
+                a: "No. CareTrail is a tool for recording and organizing health information only and cannot replace professional medical advice. If you have any health concerns, please consult a doctor."
+              }
+            ]
+          },
+          {
+            title: "Privacy",
+            paragraphs: [
+              "CareTrail takes your privacy seriously. All data is stored locally on your device by default and is not uploaded to developer servers; when iCloud Sync is enabled, data stays within your own iCloud account. The app does not use third-party advertising, analytics, or crash-reporting services."
+            ],
+            bullets: [
+              "See the privacy policy page for full details.",
+              "You can delete any data within the app at any time.",
+              "Uninstalling the app removes all local data from the device."
+            ]
+          },
+          {
+            title: "Contact Us",
+            paragraphs: [
+              "If you have any questions or suggestions, please reach out:"
+            ],
+            contact: "teng7922@126.com"
+          }
+        ]
+      }
+    };
+
+    const contentEl = document.getElementById("pageContent");
+    const titleEl = document.getElementById("pageTitle");
+    const subtitleEl = document.getElementById("pageSubtitle");
+    const footerEl = document.getElementById("pageFooter");
+    const switcherEl = document.getElementById("langSwitcher");
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+
+    function renderSection(section) {
+      const paragraphs = (section.paragraphs || [])
+        .map((text) => `<p>${escapeHtml(text)}</p>`)
+        .join("");
+      const bullets = (section.bullets || []).length
+        ? `<ul>${section.bullets.map((text) => `<li>${escapeHtml(text)}</li>`).join("")}</ul>`
+        : "";
+      const faq = (section.faq || []).length
+        ? `<dl>${section.faq.map((item) =>
+            `<dt class="faq-question">${escapeHtml(item.q)}</dt><dd><p>${escapeHtml(item.a)}</p></dd>`
+          ).join("")}</dl>`
+        : "";
+      const contact = section.contact
+        ? `<div class="contact-grid"><div class="contact-box"><span class="contact-label">${escapeHtml(currentData.contactLabel || "Contact")}</span><span class="contact-value"><a href="mailto:${escapeHtml(section.contact)}">${escapeHtml(section.contact)}</a></span></div></div>`
+        : "";
+      return `
+        <section class="card">
+          <h2>${escapeHtml(section.title)}</h2>
+          ${paragraphs}
+          ${bullets}
+          ${faq}
+          ${contact}
+        </section>
+      `;
+    }
+
+    function renderSwitcher(activeKey) {
+      switcherEl.innerHTML = currentData.languages.map((item) => `
+        <button
+          class="lang-button"
+          type="button"
+          role="tab"
+          aria-pressed="${item.key === activeKey ? "true" : "false"}"
+          data-lang="${item.key}"
+        >${escapeHtml(item.label)}</button>
+      `).join("");
+    }
+
+    let currentData = supportData["zh-Hans"];
+
+    function setLanguage(lang) {
+      currentData = supportData[lang] || supportData["zh-Hans"];
+      document.documentElement.lang = lang;
+      document.title = currentData.title + " — CareTrail";
+      titleEl.textContent = currentData.title;
+      subtitleEl.textContent = currentData.subtitle;
+      footerEl.textContent = currentData.footer;
+      contentEl.innerHTML = currentData.sections.map(renderSection).join("");
+      renderSwitcher(lang);
+      switcherEl.querySelectorAll("button[data-lang]").forEach((button) => {
+        button.addEventListener("click", () => setLanguage(button.dataset.lang));
+      });
+    }
+
+    const detected = (() => {
+      const locale = (navigator.language || "zh-Hans").toLowerCase();
+      if (locale.startsWith("zh-hant") || locale.startsWith("zh-tw") || locale.startsWith("zh-hk")) {
+        return "zh-Hant";
+      }
+      if (locale.startsWith("en")) {
+        return "en";
+      }
+      return "zh-Hans";
+    })();
+
+    setLanguage(detected);
+  </script>
+</body>
+</html>
